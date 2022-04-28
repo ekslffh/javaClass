@@ -49,6 +49,10 @@ class PhoneBookManager {
 	private static String name, phoneNumber, birth;
 
 	public static void inputData() {
+		if(curCnt >= 100) {
+			System.out.println("데이터 공간 부톡합니다.");
+			return;
+		}
 		System.out.println("데이터 입력을 시작합니다..");
 		System.out.print("이름: ");
 		name = MenuViewer.keyboard.next();
@@ -58,8 +62,20 @@ class PhoneBookManager {
 		birth = MenuViewer.keyboard.next();
 
 		StringBuilder builderString = new StringBuilder(phoneNumber);
-		builderString.insert(3, "-");
-		builderString.insert(8, "-");
+		
+		if (phoneNumber.length() == 11) {
+			builderString.insert(3, "-");
+			builderString.insert(8, "-");
+		}
+		else if (phoneNumber.length() == 10) {
+			builderString.insert(3, "-");
+			builderString.insert(7, "-");
+		}
+		else if (phoneNumber.length() == 9) {
+			builderString.insert(2, "-");
+			builderString.insert(6, "-");
+		}
+		
 		phoneNumber = builderString.toString();
 
 		builderString.setLength(0);

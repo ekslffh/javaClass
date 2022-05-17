@@ -87,8 +87,8 @@ public class GameHandler {
 
 	private void render() {
 		StringBuilder sb = new StringBuilder();
-		for (int x = 0; x < SCREEN_HEIGHT; x++) {
-			for (int y = 0; y < SCREEN_WIDTH; y++) {
+		for (int y = 0; y < SCREEN_HEIGHT; y++) {
+			for (int x = 0; x < SCREEN_WIDTH; x++) {
 				sb.append(buffer[x][y]);
 			}
 			sb.append("\n");
